@@ -1,10 +1,10 @@
-import TechStack from '@/components/TechStack'
+import ProjectCard from '@/components/ProjectCard'
 import React from 'react'
 
 const Page = () => {
   return (
     <div>
-      <TechStack/>
+      <ProjectCard/>
     </div>
   )
 }

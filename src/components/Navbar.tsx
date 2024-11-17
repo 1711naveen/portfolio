@@ -16,7 +16,7 @@ const Navbar = () => {
                         <GoHome className='mt-1 mx-2' />Skills
                     </li>
                     <li className='px-4 text-xl flex justify-center align-middle'>
-                        <GoHome className='mt-1 mx-2' />Skills
+                        <GoHome className='mt-1 mx-2' />Projects
                     </li>
                     <li className='px-4 text-xl flex justify-center align-middle'>
                         <GoHome className='mt-1 mx-2' />Projects
