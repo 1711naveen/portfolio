@@ -13,7 +13,7 @@ const Navbar = () => {
                         <GoHome className='mt-1 mx-2' />Home
                     </li>
                     <li className='px-4 text-xl flex justify-center align-middle'>
-                        <GoHome className='mt-1 mx-2' />About
+                        <GoHome className='mt-1 mx-2' />Skills
                     </li>
                     <li className='px-4 text-xl flex justify-center align-middle'>
                         <GoHome className='mt-1 mx-2' />Skills
