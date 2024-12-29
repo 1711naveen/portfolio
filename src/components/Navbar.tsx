@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { GoHome } from 'react-icons/go'
 
@@ -10,16 +11,36 @@ const Navbar = () => {
             <div className=''>
                 <ul className='flex '>
                     <li className='px-4 text-xl flex justify-center align-middle'>
-                        <GoHome className='mt-1 mx-2' />Home
+                        <Link href="/">
+                            <div className='flex items-center'>
+                                <GoHome className='mt-1 mx-2' />
+                                Home
+                            </div>
+                        </Link>
                     </li>
                     <li className='px-4 text-xl flex justify-center align-middle'>
-                        <GoHome className='mt-1 mx-2' />Skills
+                        <Link href="/skills">
+                            <div className='flex items-center'>
+                                <GoHome className='mt-1 mx-2' />
+                                Skills
+                            </div>
+                        </Link>
                     </li>
                     <li className='px-4 text-xl flex justify-center align-middle'>
-                        <GoHome className='mt-1 mx-2' />Projects
+                        <Link href="/projects">
+                            <div className='flex items-center'>
+                                <GoHome className='mt-1 mx-2' />
+                                Projects
+                            </div>
+                        </Link>
                     </li>
                     <li className='px-4 text-xl flex justify-center align-middle'>
-                        <GoHome className='mt-1 mx-2' />Projects
+                        <Link href="/resume">
+                            <div className='flex items-center'>
+                                <GoHome className='mt-1 mx-2' />
+                                Resume
+                            </div>
+                        </Link>
                     </li>
                 </ul>
             </div>
