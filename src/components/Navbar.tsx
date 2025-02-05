@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 import { GoHome } from 'react-icons/go'
+import { TiDocumentText } from "react-icons/ti";
+import { IoIosGitBranch } from "react-icons/io";
 
 const Navbar = () => {
     return (
@@ -37,11 +39,19 @@ const Navbar = () => {
                     <li className='px-4 text-xl flex justify-center align-middle'>
                         <Link href="/resume">
                             <div className='flex items-center'>
-                                <GoHome className='mt-1 mx-2' />
+                                <TiDocumentText className='mt-1 mx-2' />
                                 Resume
                             </div>
                         </Link>
                     </li>
+                    <li className='px-4 text-xl flex justify-center align-middle'>
+                        <Link href="https://github.com/1711naveen/portfolio">
+                            <div className='flex items-center border-1 rounded-lg bg-orange-400'>
+                                <IoIosGitBranch className='my-2 mx-6' />
+                            </div>
+                        </Link>
+                    </li>
+
                 </ul>
             </div>
         </div>
