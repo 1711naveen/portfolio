@@ -7,9 +7,11 @@ import { IoIosGitBranch } from "react-icons/io";
 const Navbar = () => {
     return (
         <div className='flex justify-between border p-4'>
-            <div className='text-xl'>
-                Naveen Yadav.
-            </div>
+            <Link href='/'>
+                <div className='text-xl'>
+                    Naveen Yadav.
+                </div>
+            </Link>
             <div className=''>
                 <ul className='flex '>
                     <li className='px-4 text-xl flex justify-center align-middle'>
