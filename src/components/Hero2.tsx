@@ -39,7 +39,7 @@ const Hero2 = () => {
                 Hello, I&apos;m Naveen, a dedicated Full Stack Engineer at Listed (OpeninApp), thriving in the dynamic startup environment. My journey here has been incredibly rewarding, allowing me to take ownership of projects and experience rapid professional growth through continuous learning.
               </li>
               <li className='my-4'>
-                Driven by a passion for problem-solving and Leetcoding, I&apos;ve achieved a Guardian badge (2187 rating) and represented my college at the ICPC 2023 Regionals. With over 550 days of consistent practice on LeetCode, I&apos;m deeply committed to refining my skills and optimizing solutions.
+                Driven by a passion for problem-solving and Leetcoding, I&apos;ve achieved a Knight badge (1762 rating)  With over 200 days of consistent practice on LeetCode, I&apos;m deeply committed to refining my skills and optimizing solutions.
               </li>
               <li className='my-4'>
                 Whenever possible, I also apply my passion for developing products with Node.js and Modern Javascript Library and Frameworks  like React.js and Next.js
