@@ -1,11 +1,15 @@
-import Hero from "@/components/Hero";
-import Hero2 from "@/components/Hero2";
+import LeftSideNav from "@/components/LeftSideNav";
+import RightSide from "@/components/RightSide";
 
 export default function Home() {
   return (
-    <div>
-      <Hero/>
-      <Hero2/>
+    <div className="flex ">
+      <div className="w-1/4 border-2 rounded-xl m-8 border-black ">
+        <LeftSideNav />
+      </div>
+      <div className="w-3/4 border-2 border-black">
+        <RightSide />
+      </div>
     </div>
   );
 }
