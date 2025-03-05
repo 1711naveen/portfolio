@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Button } from "./ui/moving-border";
+import { FaBriefcase } from "react-icons/fa6";
 
 const workExperience = [
     {
@@ -35,19 +36,20 @@ const workExperience = [
 
 const Experience = () => {
     return (
-        <div className="max-w-3xl p-4">
-            <div className="flex">
-                <Image src="/my-avatar.png" height={40} width={40} alt="change it later" />
-                <p className="text-xl">Experience</p>
+        <div className="px-20 p-8">
+            <div className="flex p-10 ">
+                {/* <Image src="/my-avatar.png" height={40} width={40} alt="change it later" /> */}
+                {/* <FaBriefcase className="h-14 w-14 px-2 mx-2"/> */}
+                <p className="text-5xl text-purple-500">Professional Experience</p>
             </div>
 
-            <ol className="relative border-s border-gray-200 dark:border-gray-700">
+            <ol className="relative border-s-2 border-black dark:border-gray-700">
                 <li className="mb-10 ms-6 ">
-                    <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+                    {/* <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
                         <svg className="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                         </svg>
-                    </span>
+                    </span> */}
                     <Button
                         key={1}
                         //   random duration will be fun , I think , may be not
@@ -67,16 +69,34 @@ const Experience = () => {
                     >
                         <div className="flex lg:flex-row flex-col lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2">
                             <img
-                                src={"/github.svg"}
-                                alt={"Github Image"}
+                                src={"/company.png"}
+                                alt={"Neural Company logo"}
                                 className="lg:w-32 md:w-20 w-16"
                             />
                             <div className="lg:ms-5">
                                 <h1 className="text-start text-xl md:text-2xl font-bold">
-                                    {"Frontend Engineer Intern"}
+                                    {"Neural Info Solutions Pvt. Ltd."}
                                 </h1>
+                                <p className="text-start">MERN Stack Developer</p>
                                 <p className="text-start text-white-100 mt-3 font-semibold">
-                                    {"Assisted in the development of a web-based platform using React.js, enhancing interactivity"}
+                                    <ul>
+                                        <li className="py-2">
+                                            Engineered scalable full-stack web applications using MongoDB, Express.js, React.js, and Node.js
+                                            (MERN Stack), implementing RESTful APIs and modern architectural patterns.
+                                        </li>
+                                        <li className="py-2">
+                                            Collaborated with cross-functional teams to design and implement responsive, user-centric
+                                            interfaces, enhancing overall user experienc
+                                        </li>
+                                        <li className="py-2">
+                                            Optimized application performance by 20% through third-party API integrations and code
+                                            optimization strategies including caching mechanisms and React component lazy-loading.
+                                        </li>
+                                        <li className="py-2">
+                                            Utilized Git and GitHub for version control, ensuring streamlined collaboration and efficient
+                                            codebase management in an agile development environment.
+                                        </li>
+                                    </ul>
                                 </p>
                             </div>
                         </div>

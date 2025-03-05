@@ -3,14 +3,15 @@
 import { FaLocationArrow } from "react-icons/fa6";
 
 import { PinContainer } from "./ui/Pin";
+import ProjectCard from "./ProjectCard";
 
 const RecentProjects = () => {
     const projects = [
         {
             id: 1,
-            title: "3D Solar System Planets to Explore",
-            des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-            img: "/p1.svg",
+            title: "Portfolio Website",
+            des: "I built my portfolio website using Next.js and Tailwind CSS to ensure a robust and visually appealing experience. Next.js offers the benefits of server-side rendering and static site generation, which not only improves performance but also boosts SEO. Tailwind CSS, with its utility-first approach, allowed for rapid styling and helped create a responsive, consistent design that's easy to maintain. The combination of these technologies resulted in a modular, component-driven architecture, delivering a seamless and scalable user experience across all devices.",
+            img: "/somerandom.png",
             iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
             link: "/ui.earth.com",
         },
@@ -18,7 +19,7 @@ const RecentProjects = () => {
             id: 2,
             title: "Yoom - Video Conferencing App",
             des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-            img: "/p2.svg",
+            img: "/somerandom.png",
             iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
             link: "/ui.yoom.com",
         },
@@ -26,7 +27,7 @@ const RecentProjects = () => {
             id: 3,
             title: "AI Image SaaS - Canva Application",
             des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-            img: "/p3.svg",
+            img: "/somerandom.png",
             iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
             link: "/ui.aiimg.com",
         },
@@ -34,7 +35,7 @@ const RecentProjects = () => {
             id: 4,
             title: "Animated Apple Iphone 3D Website",
             des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-            img: "/p4.svg",
+            img: "/somerandom.png",
             iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
             link: "/ui.apple.com",
         },
@@ -43,9 +44,9 @@ const RecentProjects = () => {
         <div className="py-20">
             <h1 className="text-center font-bold text-5xl">
                 A small selection of{" "}
-                <span className="text-[#CBACF9]">recent projects</span>
+                <span className="text-purple-500">recent projects</span>
             </h1>
-            <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
+            {/* <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
                 {projects.map((item) => (
                     <div
                         className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
@@ -108,6 +109,14 @@ const RecentProjects = () => {
                         </PinContainer>
                     </div>
                 ))}
+            </div> */}
+
+            <div className="container mx-auto px-10 py-8">
+                <div className="space-y-8">
+                    {projects.map((project) => (
+                        <ProjectCard key={project.id} project={project} />
+                    ))}
+                </div>
             </div>
         </div>
     );
