@@ -1,8 +1,5 @@
 "use client";
 
-import { FaLocationArrow } from "react-icons/fa6";
-
-import { PinContainer } from "./ui/Pin";
 import ProjectCard from "./ProjectCard";
 
 const RecentProjects = () => {
