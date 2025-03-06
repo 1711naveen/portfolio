@@ -2,6 +2,7 @@
 
 import ProjectCard from "./ProjectCard";
 
+
 const RecentProjects = () => {
     const projects = [
         {
