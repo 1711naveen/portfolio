@@ -1,8 +1,5 @@
 'use client'
-import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react'
-import Typewriter from 'typewriter-effect';
 
 const About = () => {
   return (
@@ -12,7 +9,7 @@ const About = () => {
       <ol className='px-10'>
 
         <li className='py-5 text-2xl'>
-          Hi, I'm Naveen Yadav, a MERN Stack Developer with a passion for technology. I currently work at Neural Info Solutions Pvt. Ltd., where I develop and maintain web applications. I graduated in Mechanical Engineering from Madan Mohan Malaviya University of Technology in 2023 with a CGPA of 7.69 and secured 87% in my 12th standard. Although my degree is in Mechanical Engineering, I discovered my love for programming in my first year with a simple "Hello World" in C. After that i started learning programming
+          Hi, I&apos;m Naveen Yadav, a MERN Stack Developer with a passion for technology. I currently work at Neural Info Solutions Pvt. Ltd., where I develop and maintain web applications. I graduated in Mechanical Engineering from Madan Mohan Malaviya University of Technology in 2023 with a CGPA of 7.69 and secured 87% in my 12th standard. Although my degree is in Mechanical Engineering, I discovered my love for programming in my first year with a simple &quot;Hello World&quot; in C. After that i started learning programming
         </li>
         <li className='py-5 text-2xl'>
           I am fluent in languages like C, C++, Java, and Python with Java as my preferred language. I am also  skilled in frontend technologies such as HTML, CSS, JavaScript, React.js, and Next.js, as well as backend frameworks like Express.js and Spring Boot. I enjoy building robust web applications with sleek designs and continually expand my knowledge in Artificial Intelligence and Machine Learning.
