@@ -4,7 +4,6 @@ import Experience from "@/components/Experience";
 import Hero from "@/components/Hero";
 import RecentProjects from "@/components/Projects";
 import TechStack from "@/components/TechStack";
-import Head from "next/head";
 
 
 export default function Home() {
