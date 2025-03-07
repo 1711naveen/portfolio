@@ -22,9 +22,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Naveen Yadav | Portfolio",
   description: "This is my portfolio",
-  verification: {
-    google: 'QtniQdRHdat4LX4KBlx9wXHn_mmqTZNAM8_Ki25JMYM',
-  },
+  
 };
 
 export default function RootLayout({
