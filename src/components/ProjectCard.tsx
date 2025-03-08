@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Project {
     id: number;
@@ -33,27 +34,27 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               />
             </div>
           ))}
-        </div>
-        <a
+        <Link
           href={link}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"
         >
           Visit Project
-        </a>
+        </Link>
+        </div>
       </div>
 
       {/* Right section: Image */}
-      <div className="relative w-full md:w-1/4 h-64 p-2 ">
+      <div className="relative w-full md:w-1/3 h-64 p-2 rounded-2xl" >
         <Image
           src={img}
           alt={title}
-          height={400}
-          width={200}
-        //   layout="fill"
-        //   objectFit="cover"
-          className="object p-4 rounded-md"
+          // height={600}
+          // width={600}
+          layout="fill"
+          objectFit="cover"
+          className="p-4 rounded-2xl"
         />
       </div>
     </div>

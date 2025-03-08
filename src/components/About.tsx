@@ -3,7 +3,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div className='px-20'>
+    <div className='px-20' id='about'>
       <p className='p-10 text-purple-600 text-5xl font-bold'>Introduction - About Me </p>
       
       <ol className='px-10'>

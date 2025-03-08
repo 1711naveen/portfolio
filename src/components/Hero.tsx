@@ -6,7 +6,7 @@ import Typewriter from 'typewriter-effect';
 
 const Hero = () => {
     return (
-        <div className='flex justify-between align-middle px-20 py-10'>
+        <div className='flex justify-between align-middle px-20 py-10 h-screen'>
             <div className='my-auto  px-10'>
                 <p className='text-7xl font-bold'>Hi, I am Naveen Yadav</p>
                 <div className='flex my-8'>
