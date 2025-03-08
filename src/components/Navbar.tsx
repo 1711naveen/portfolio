@@ -28,7 +28,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className='px-4 text-xl flex justify-center align-middle'>
-                        <Link href="#about">
+                        <Link href="/#about">
                             <div className='flex items-center'>
                                 <MdPerson className='mt-1 mx-2' />
                                 About
@@ -36,7 +36,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className='px-4 text-xl flex justify-center align-middle'>
-                        <Link href="#projects">
+                        <Link href="/#projects">
                             <div className='flex items-center'>
                                 <GoProjectRoadmap className='mt-1 mx-2' />
                                 Projects
@@ -44,7 +44,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className='px-4 text-xl flex justify-center align-middle'>
-                        <Link href="#projects">
+                        <Link href="/#projects">
                             <div className='flex items-center'>
                                 <GiSkills className='mt-1 mx-2' />
                                 Skills

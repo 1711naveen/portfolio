@@ -12,7 +12,7 @@ const Experience = () => {
                 <p className="text-5xl text-purple-500">Professional Experience</p>
             </div>
 
-            <ol className="relative border-s-2 border-black dark:border-gray-700">
+            <ol className="relative  dark:border-gray-700">
                 <li className="mb-10 ms-6 ">
                     {/* <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
                         <svg className="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -49,7 +49,7 @@ const Experience = () => {
                                     {"Neural Info Solutions Pvt. Ltd."}
                                 </h1>
                                 <p className="text-start">MERN Stack Developer</p>
-                                <p className="text-start text-white-100 mt-3 font-semibold">
+                                <div className="text-start text-white-100 mt-3 font-semibold">
                                     <ul>
                                         <li className="py-2">
                                             Engineered scalable full-stack web applications using MongoDB, Express.js, React.js, and Node.js
@@ -68,7 +68,7 @@ const Experience = () => {
                                             codebase management in an agile development environment.
                                         </li>
                                     </ul>
-                                </p>
+                                </div>
                             </div>
                         </div>
                     </Button>

@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
+import { ThemeProvider } from 'next-themes';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,8 +17,8 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-{/* <meta name="google-site-verification" content="ZPeQqXjf_S0YTwghl3iLi52Gv_vzrb2L6roFxOINN-o" /> old*/}
-{/* <meta name="google-site-verification" content="QtniQdRHdat4LX4KBlx9wXHn_mmqTZNAM8_Ki25JMYM" /> */}
+{/* <meta name="google-site-verification" content="ZPeQqXjf_S0YTwghl3iLi52Gv_vzrb2L6roFxOINN-o" /> old*/ }
+{/* <meta name="google-site-verification" content="QtniQdRHdat4LX4KBlx9wXHn_mmqTZNAM8_Ki25JMYM" /> */ }
 export const metadata: Metadata = {
   title: "Naveen Yadav | Portfolio",
   description: "This is my portfolio",
@@ -33,13 +33,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">      
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      <Navbar/>
-        {children}
-      <Footer/>
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

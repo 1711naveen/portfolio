@@ -38,8 +38,8 @@ const TechStack = () => {
     ];
 
     return (
-        <div>
-            <h1 className='text-7xl text-center'>Technical Languages</h1>
+        <div className='px-20 py-8'>
+            <h1 className='text-5xl text-center mb-8'>Technical <span className='text-purple-600'>Languages</span></h1>
 
             <div className="grid grid-cols-5 gap-8 mx-12 p-4">
                 {icons.map(({ Icon }, index) => (
@@ -63,8 +63,8 @@ const TechStack = () => {
                                     "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
                                 // add this border radius to make it more rounded so that the moving border is more realistic
                                 borderRadius: `calc(1.75rem* 0.96)`,
-                                height: '200px',
-                                width: '230px',
+                                height: '180px',
+                                width: '210px',
                             }}
                             // remove bg-white dark:bg-slate-900
                             className="flex-1 text-white dark:text-white border-neutral-200 dark:border-slate-800"
@@ -77,7 +77,7 @@ const TechStack = () => {
 
 
 
-            <h1 className='text-7xl text-center'>Technologies and Frameworks</h1>
+            <h1 className='text-5xl text-center mt-20 mb-4 '>Technologies and <span className='text-purple-600'>Frameworks</span></h1>
             <div className="grid grid-cols-5 gap-8 mx-12 p-4">
                 {tools.map(({ Icon }, index) => (
                     <div>
@@ -95,8 +95,8 @@ const TechStack = () => {
                                     "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
                                 // add this border radius to make it more rounded so that the moving border is more realistic
                                 borderRadius: `calc(1.75rem* 0.96)`,
-                                height: '200px',
-                                width: '230px',
+                                height: '180px',
+                                width: '210px',
                             }}
                             // remove bg-white dark:bg-slate-900
                             className="flex-1 text-white dark:text-white border-neutral-200 dark:border-slate-800"
