@@ -49,9 +49,8 @@ const TechStack = () => {
                     //   >
                     //     <Icon className="text-7xl text-center " />
                     //   </div>
-                    <div className=''>
+                    <div className='' key={index}>
                         <Button
-                            key={index}
                             //   random duration will be fun , I think , may be not
                             duration={Math.floor(Math.random() * 10000) + 10000}
                             borderRadius="1.75rem"
@@ -80,10 +79,9 @@ const TechStack = () => {
             <h1 className='text-7xl text-center'>Technologies and Frameworks</h1>
             <div className="grid grid-cols-5 gap-8 mx-12 p-4">
                 {tools.map(({ Icon }, index) => (
-                    <div>
+                    <div key={index}>
 
                         <Button
-                            key={index}
                             //   random duration will be fun , I think , may be not
                             duration={Math.floor(Math.random() * 10000) + 10000}
                             borderRadius="1.75rem"
