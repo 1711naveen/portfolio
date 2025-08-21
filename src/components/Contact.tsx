@@ -3,9 +3,9 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import {  FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa"
+import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6"
-import { SiLeetcode, SiCodeforces } from "react-icons/si"
+import { SiLeetcode, SiCodeforces, SiCodechef } from "react-icons/si"
 import { GlassCard, AnimatedButton } from './ui'
 
 interface ContactFormData {
@@ -31,7 +31,7 @@ const Contact = () => {
     },
     {
       name: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/naveenyadav1711',
+      href: 'https://www.linkedin.com/in/naveenyadav1711/',
       icon: FaLinkedin,
       color: 'text-blue-500 hover:text-blue-400'
     },
@@ -43,19 +43,25 @@ const Contact = () => {
     },
     {
       name: 'Email',
-      href: 'mailto:naveenyadav1711@gmail.com',
+      href: 'mailto:yn.naveen00@gmail.com',
       icon: FaEnvelope,
       color: 'text-red-500 hover:text-red-400'
     },
     {
       name: 'Codeforces',
-      href: 'https://codeforces.com/profile/1711naveen',
+      href: 'https://codeforces.com/profile/zoot',
       icon: SiCodeforces,
       color: 'text-blue-600 hover:text-blue-500'
     },
     {
+      name: "CodeChef",
+      href: 'https://www.codechef.com/users/zoot17',
+      icon: SiCodechef,
+      color: 'text-blue-600 hover:text-blue-500'
+    },
+    {
       name: 'Twitter',
-      href: 'https://twitter.com/naveen1711',
+      href: 'https://x.com/coder1729',
       icon: FaXTwitter,
       color: 'text-gray-400 hover:text-white'
     }
@@ -65,8 +71,8 @@ const Contact = () => {
     {
       icon: FaEnvelope,
       label: 'Email',
-      value: 'naveenyadav1711@gmail.com',
-      href: 'mailto:naveenyadav1711@gmail.com'
+      value: 'yn.naveen00@gmail.com',
+      href: 'mailto:yn.naveen00@gmail.com'
     },
     {
       icon: FaMapMarkerAlt,
@@ -84,7 +90,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false)
@@ -131,8 +137,8 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-semibold text-white mb-6">Get in Touch</h3>
               <p className="text-gray-400 text-base leading-relaxed mb-8">
-                I&apos;m always interested in new opportunities and exciting projects. 
-                Whether you want to discuss a potential collaboration or just say hi, 
+                I&apos;m always interested in new opportunities and exciting projects.
+                Whether you want to discuss a potential collaboration or just say hi,
                 feel free to reach out!
               </p>
             </div>
@@ -153,7 +159,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 font-medium">{info.label}</p>
-                    <Link 
+                    <Link
                       href={info.href}
                       className="text-white hover:text-blue-400 transition-colors text-sm md:text-base"
                     >
@@ -282,8 +288,8 @@ const Contact = () => {
                 </AnimatedButton>
               </Link>
               <Link href="mailto:naveenyadav1711@gmail.com">
-                <AnimatedButton 
-                  variant="outline" 
+                <AnimatedButton
+                  variant="outline"
                   className="px-8 py-3 text-white font-medium border-blue-500/50 hover:bg-blue-500/10"
                 >
                   <FaEnvelope className="mr-2" />
