@@ -20,11 +20,41 @@ import { GradientText } from './ui';
 import { scrollToSection } from '@/lib/utils';
 
 const navItems = [
-  { name: 'Home', href: '/', icon: GoHome, section: 'hero' },
-  { name: 'About', href: '/#about', icon: MdPerson, section: 'about' },
-  { name: 'Projects', href: '/#projects', icon: GoProjectRoadmap, section: 'projects' },
-  { name: 'Skills', href: '/#skills', icon: GiSkills, section: 'skills' },
-  { name: 'Resume', href: '/resume', icon: TiDocumentText, section: null },
+  { 
+    name: 'Home', 
+    href: '/', 
+    icon: GoHome, 
+    section: 'hero',
+    description: 'Return to homepage'
+  },
+  { 
+    name: 'About', 
+    href: '/#about', 
+    icon: MdPerson, 
+    section: 'about',
+    description: 'Learn about Naveen Yadav\'s background and experience'
+  },
+  { 
+    name: 'Projects', 
+    href: '/#projects', 
+    icon: GoProjectRoadmap, 
+    section: 'projects',
+    description: 'View portfolio projects and case studies'
+  },
+  { 
+    name: 'Skills', 
+    href: '/#skills', 
+    icon: GiSkills, 
+    section: 'skills',
+    description: 'Explore technical skills and expertise'
+  },
+  { 
+    name: 'Resume', 
+    href: '/resume', 
+    icon: TiDocumentText, 
+    section: null,
+    description: 'Download or view professional resume'
+  },
 ];
 
 const Navbar = () => {
@@ -101,6 +131,8 @@ const Navbar = () => {
                     <button
                       onClick={() => handleNavClick(item)}
                       className="flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10 group"
+                      aria-label={item.description}
+                      title={item.description}
                     >
                       <item.icon className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
                       {item.name}
@@ -109,6 +141,8 @@ const Navbar = () => {
                     <Link
                       href={item.href}
                       className="flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10 group"
+                      aria-label={item.description}
+                      title={item.description}
                     >
                       <item.icon className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
                       {item.name}
@@ -206,6 +240,8 @@ const Navbar = () => {
                       <button
                         onClick={() => handleNavClick(item)}
                         className="flex items-center w-full px-4 py-3 rounded-lg text-left font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10"
+                        aria-label={item.description}
+                        title={item.description}
                       >
                         <item.icon className="mr-3 h-5 w-5" />
                         {item.name}
@@ -215,6 +251,8 @@ const Navbar = () => {
                         href={item.href}
                         onClick={() => setIsOpen(false)}
                         className="flex items-center w-full px-4 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10"
+                        aria-label={item.description}
+                        title={item.description}
                       >
                         <item.icon className="mr-3 h-5 w-5" />
                         {item.name}

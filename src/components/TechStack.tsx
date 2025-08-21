@@ -76,7 +76,7 @@ const TechStack = () => {
     { title: 'Tools', skills: tools, gradient: 'from-purple-500 to-pink-500' },
   ]
 
-  const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => (
+    const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
