@@ -122,7 +122,7 @@ const Hero = () => {
               className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed"
             >
               Passionate MERN Stack Developer with expertise in building scalable web applications. 
-              I've solved <strong>{leetCodeStats?.totalSolved || '600+'}</strong> problems on LeetCode 
+              I&apos;ve solved <strong>{leetCodeStats?.totalSolved || '600+'}</strong> problems on LeetCode 
               and love turning complex ideas into elegant solutions.
             </motion.p>
 

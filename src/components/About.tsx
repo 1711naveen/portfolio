@@ -97,7 +97,7 @@ const About = () => {
               <GlassCard className="p-8">
                 <div className="space-y-6 text-lg leading-relaxed">
                   <p>
-                    Hi, I'm <GradientText className="font-semibold">Naveen Yadav</GradientText>, a{" "}
+                    Hi, I&apos;m <GradientText className="font-semibold">Naveen Yadav</GradientText>, a{" "}
                     <span className="font-semibold text-purple-600 dark:text-purple-400">
                       MERN Stack Developer
                     </span>{" "}
@@ -111,7 +111,7 @@ const About = () => {
                     <span className="font-semibold">Madan Mohan Malaviya University of Technology</span> in 
                     2023 with a CGPA of <span className="text-blue-500 font-semibold">7.69</span>. 
                     Although my degree is in Mechanical Engineering, I discovered my love for programming 
-                    in my first year with a simple "Hello World" in C.
+                    in my first year with a simple &quot;Hello World&quot; in C.
                   </p>
 
                   <p>

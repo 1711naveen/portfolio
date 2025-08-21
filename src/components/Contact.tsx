@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { FaInstagram, FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa"
+import {  FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6"
 import { SiLeetcode, SiCodeforces } from "react-icons/si"
 import { GlassCard, AnimatedButton } from './ui'
@@ -111,11 +110,11 @@ const Contact = () => {
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
-              Let's Connect
+              Let&apos;s Connect
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Ready to bring your ideas to life? Let's discuss how we can work together to create something amazing.
+            Ready to bring your ideas to life? Let&apos;s discuss how we can work together to create something amazing.
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto mt-4"></div>
         </motion.div>
@@ -132,7 +131,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-semibold text-white mb-6">Get in Touch</h3>
               <p className="text-gray-400 text-base leading-relaxed mb-8">
-                I'm always interested in new opportunities and exciting projects. 
+                I&apos;m always interested in new opportunities and exciting projects. 
                 Whether you want to discuss a potential collaboration or just say hi, 
                 feel free to reach out!
               </p>
@@ -274,7 +273,7 @@ const Contact = () => {
               Ready to Start a Project?
             </h3>
             <p className="text-gray-400 mb-8 text-lg">
-              Let's turn your vision into reality. Contact me today to discuss your next project.
+              Let&apos;s turn your vision into reality. Contact me today to discuss your next project.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/resume">

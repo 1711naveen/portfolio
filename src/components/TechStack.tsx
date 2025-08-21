@@ -28,8 +28,15 @@ import {
 import { CgCPlusPlus } from 'react-icons/cg'
 import { BiLogoPostgresql } from 'react-icons/bi'
 
+type Skill = {
+  Icon: React.ComponentType<{ className?: string }>;
+  name: string;
+  color: string;
+  level: number;
+};
+
 const TechStack = () => {
-  const languages = [
+  const languages: Skill[] = [
     { Icon: DiJava, name: 'Java', color: 'text-red-500', level: 90 },
     { Icon: CgCPlusPlus, name: 'C++', color: 'text-blue-500', level: 85 },
     { Icon: DiPython, name: 'Python', color: 'text-yellow-500', level: 80 },
@@ -69,7 +76,7 @@ const TechStack = () => {
     { title: 'Tools', skills: tools, gradient: 'from-purple-500 to-pink-500' },
   ]
 
-  const SkillCard = ({ skill, index }: { skill: any; index: number }) => (
+  const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
