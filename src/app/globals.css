@@ -201,3 +201,24 @@ body {
 .text-responsive-base {
   @apply text-base sm:text-lg md:text-xl;
 }
+
+/* Typewriter specific styles */
+.typewriter-wrapper {
+  display: inline;
+  color: transparent;
+  background: linear-gradient(45deg, #8b5cf6, #ec4899, #06b6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease infinite;
+}
+
+.dark .typewriter-wrapper {
+  background: linear-gradient(45deg, #a855f7, #f472b6, #22d3ee);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease infinite;
+}

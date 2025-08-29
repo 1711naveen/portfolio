@@ -4,10 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Typewriter from 'typewriter-effect';
 import { FaGithub, FaLinkedin, FaEnvelope, FaDownload, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import { AnimatedButton, GradientText } from './ui';
+import TypewriterText from './ui/TypewriterText';
 import { fetchLeetCodeStats, LeetCodeStats } from '@/lib/api';
 
 const Hero = () => {
@@ -63,7 +63,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-blue-500/10" />
       <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-      
+
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -95,23 +95,19 @@ const Hero = () => {
               className="text-2xl md:text-4xl font-semibold text-gray-800 dark:text-gray-200"
             >
               <span>I am </span>
-              <GradientText>
-                <Typewriter
-                  options={{
-                    strings: [
-                      'Full Stack Developer',
-                      'MERN Stack Expert',
-                      'Problem Solver',
-                      'LeetCode Enthusiast',
-                      'Tech Innovator'
-                    ],
-                    autoStart: true,
-                    loop: true,
-                    deleteSpeed: 50,
-                    delay: 80,
-                  }}
-                />
-              </GradientText>
+              <TypewriterText
+                strings={[
+                  'Full Stack Developer',
+                  "Freelance Developer",
+                  'MERN Stack Expert',
+                  'Problem Solver',
+                  'LeetCode Enthusiast',
+                ]}
+                typeSpeed={80}
+                deleteSpeed={50}
+                delayBetweenStrings={2000}
+                loop={true}
+              />
             </motion.div>
 
             {/* Brief Description */}
@@ -121,8 +117,8 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed"
             >
-              Passionate MERN Stack Developer with expertise in building scalable web applications. 
-              I&apos;ve solved <strong>{leetCodeStats?.totalSolved || '600+'}</strong> problems on LeetCode 
+              Passionate MERN Stack Developer with expertise in building scalable web applications.
+              I&apos;ve solved <strong>{leetCodeStats?.totalSolved || '600+'}</strong> problems on LeetCode
               and love turning complex ideas into elegant solutions.
             </motion.p>
 
@@ -139,7 +135,7 @@ const Hero = () => {
                   Download Resume
                 </AnimatedButton>
               </Link>
-              
+
               <Link href="#projects">
                 <AnimatedButton variant="outline" size="lg" className="w-full sm:w-auto">
                   <FaExternalLinkAlt className="mr-2 h-4 w-4" />
@@ -232,16 +228,16 @@ const Hero = () => {
             <div className="relative">
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-2xl scale-110" />
-              
+
               {/* Profile image */}
               <motion.div
-                animate={{ 
+                animate={{
                   y: [0, -20, 0],
                   rotate: [0, 2, 0, -2, 0]
                 }}
-                transition={{ 
-                  duration: 6, 
-                  repeat: Infinity, 
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
                   repeatType: 'reverse',
                   ease: 'easeInOut'
                 }}
@@ -259,26 +255,26 @@ const Hero = () => {
 
               {/* Floating elements */}
               <motion.div
-                animate={{ 
+                animate={{
                   rotate: 360,
                   scale: [1, 1.1, 1]
                 }}
-                transition={{ 
-                  duration: 8, 
-                  repeat: Infinity, 
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
                   ease: 'linear'
                 }}
                 className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-sm opacity-60"
               />
-              
+
               <motion.div
-                animate={{ 
+                animate={{
                   rotate: -360,
                   scale: [1, 0.9, 1]
                 }}
-                transition={{ 
-                  duration: 10, 
-                  repeat: Infinity, 
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
                   ease: 'linear'
                 }}
                 className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur-sm opacity-60"
