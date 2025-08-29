@@ -60,6 +60,7 @@ const navItems = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -72,9 +73,34 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      
+      // Update active section based on scroll position
+      const sections = [
+        { id: 'hero', navSection: 'hero' },
+        { id: 'about', navSection: 'about' },
+        { id: 'experience', navSection: 'about' }, // Map experience to about nav
+        { id: 'projects', navSection: 'projects' },
+        { id: 'skills', navSection: 'skills' },
+        { id: 'contact', navSection: 'skills' } // Map contact to skills nav
+      ];
+      
+      const scrollPosition = window.scrollY + 150; // Adjusted offset
+      let currentNavSection = 'hero'; // Default to hero
+      
+      // Find the section currently in view
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i].id);
+        if (section && scrollPosition >= section.offsetTop) {
+          currentNavSection = sections[i].navSection;
+          break;
+        }
+      }
+      
+      setActiveSection(currentNavSection);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call once to set initial state
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -85,6 +111,11 @@ const Navbar = () => {
   const handleNavClick = (item: typeof navItems[0]) => {
     if (item.section) {
       scrollToSection(item.section);
+      setActiveSection(item.section); // Immediately update active section
+      // Also update after scroll animation completes
+      setTimeout(() => {
+        setActiveSection(item.section!);
+      }, 100);
     }
     setIsOpen(false);
   };
@@ -120,36 +151,53 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  {item.section ? (
-                    <button
-                      onClick={() => handleNavClick(item)}
-                      className="flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10 group"
-                      aria-label={item.description}
-                      title={item.description}
-                    >
-                      <item.icon className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
-                      {item.name}
-                    </button>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10 group"
-                      aria-label={item.description}
-                      title={item.description}
-                    >
-                      <item.icon className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
-                      {item.name}
-                    </Link>
-                  )}
-                </motion.div>
-              ))}
+              {navItems.map((item, index) => {
+                const isActive = item.section === activeSection;
+                return (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    {item.section ? (
+                      <button
+                        onClick={() => handleNavClick(item)}
+                        className={`relative flex items-center px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 group ${
+                          isActive 
+                            ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-600 dark:text-purple-400' 
+                            : 'hover:bg-white/20 dark:hover:bg-white/10'
+                        }`}
+                        aria-label={item.description}
+                        title={item.description}
+                      >
+                        <item.icon className={`mr-2 h-4 w-4 transition-transform ${
+                          isActive ? 'scale-110' : 'group-hover:scale-110'
+                        }`} />
+                        {item.name}
+                        {isActive && (
+                          <motion.div
+                            layoutId="activeIndicator"
+                            className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                            initial={false}
+                            transition={{ duration: 0.3 }}
+                          />
+                        )}
+                      </button>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="flex items-center px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10 group"
+                        aria-label={item.description}
+                        title={item.description}
+                      >
+                        <item.icon className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+                        {item.name}
+                      </Link>
+                    )}
+                  </motion.div>
+                );
+              })}
 
               {/* GitHub Link */}
               <motion.div
@@ -229,37 +277,49 @@ const Navbar = () => {
               className="md:hidden backdrop-blur-md bg-white/90 dark:bg-black/90 border-t border-white/20 dark:border-white/10"
             >
               <div className="container mx-auto px-4 py-4 space-y-2">
-                {navItems.map((item, index) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                  >
-                    {item.section ? (
-                      <button
-                        onClick={() => handleNavClick(item)}
-                        className="flex items-center w-full px-4 py-3 rounded-lg text-left font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10"
-                        aria-label={item.description}
-                        title={item.description}
-                      >
-                        <item.icon className="mr-3 h-5 w-5" />
-                        {item.name}
-                      </button>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className="flex items-center w-full px-4 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10"
-                        aria-label={item.description}
-                        title={item.description}
-                      >
-                        <item.icon className="mr-3 h-5 w-5" />
-                        {item.name}
-                      </Link>
-                    )}
-                  </motion.div>
-                ))}
+                {navItems.map((item, index) => {
+                  const isActive = item.section === activeSection;
+                  return (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                    >
+                      {item.section ? (
+                        <button
+                          onClick={() => handleNavClick(item)}
+                          className={`relative flex items-center w-full px-4 py-3 rounded-lg text-left text-base font-medium transition-all duration-200 ${
+                            isActive 
+                              ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-600 dark:text-purple-400' 
+                              : 'hover:bg-white/20 dark:hover:bg-white/10'
+                          }`}
+                          aria-label={item.description}
+                          title={item.description}
+                        >
+                          <item.icon className={`mr-3 h-5 w-5 transition-transform ${
+                            isActive ? 'scale-110' : ''
+                          }`} />
+                          {item.name}
+                          {isActive && (
+                            <div className="absolute right-4 w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
+                          )}
+                        </button>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center w-full px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10"
+                          aria-label={item.description}
+                          title={item.description}
+                        >
+                          <item.icon className="mr-3 h-5 w-5" />
+                          {item.name}
+                        </Link>
+                      )}
+                    </motion.div>
+                  );
+                })}
 
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
