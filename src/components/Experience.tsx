@@ -18,6 +18,20 @@ const Experience = () => {
         "Optimized application performance by 20% through third-party API integrations and code optimization strategies including caching mechanisms and React component lazy-loading.",
         "Utilized Git and GitHub for version control, ensuring streamlined collaboration and efficient codebase management in an agile development environment."
       ]
+    },
+    {
+      company: "Freelance",
+      position: "Data Scraping Developer & Web Automation Specialist",
+      duration: "June 2025 - Present",
+      logo: "/globe.svg",
+      achievements: [
+        "Developed a comprehensive TypeScript/Node.js web scraping framework for UK planning application portals, automating data extraction from multiple council systems including Birmingham and Central Bedfordshire.",
+        "Engineered modular scraping agents capable of handling diverse council web systems (legacy and modern), with session management, pagination handling, and parsing of both HTML content and AJAX endpoints.",
+        "Implemented robust data standardization pipelines that transform heterogeneous planning application data into unified structured formats, ensuring consistency across different council data sources.",
+        "Built scalable document extraction utilities with advanced date parsing, error handling, and retry mechanisms, processing thousands of planning applications and associated documents daily.",
+        "Integrated Elasticsearch for efficient indexing and searching of extracted planning data, enabling fast retrieval and analytics capabilities for downstream data pipelines.",
+        "Designed extensible architecture supporting integration with analytics platforms and data pipelines, delivering actionable insights for urban planning and development analysis."
+      ]
     }
   ]
 
@@ -48,7 +62,7 @@ const Experience = () => {
           <div className="relative">
             {/* Timeline line - hidden on mobile */}
             <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 via-purple-500 to-cyan-400 hidden lg:block"></div>
-            
+
             <div className="space-y-8">
               {experiences.map((exp, index) => (
                 <motion.div
@@ -61,7 +75,7 @@ const Experience = () => {
                 >
                   {/* Timeline dot */}
                   <div className="absolute left-4 lg:left-0 top-8 w-4 h-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full border-4 border-white dark:border-black group-hover:scale-125 transition-transform duration-300 hidden lg:block shadow-lg shadow-blue-500/50"></div>
-                  
+
                   <GlassCard className="p-6 md:p-8 group-hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20">
                     {/* Company Header */}
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
@@ -88,7 +102,7 @@ const Experience = () => {
                         {exp.duration}
                       </div>
                     </div>
-                    
+
                     {/* Achievements */}
                     <div className="space-y-4">
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
@@ -116,11 +130,18 @@ const Experience = () => {
                     <div className="mt-6 pt-6 border-t border-gray-300 dark:border-gray-800">
                       <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-3">Technologies Used:</h4>
                       <div className="flex flex-wrap gap-2">
-                        {['React.js', 'Node.js', 'MongoDB', 'Express.js', 'JavaScript', 'Git', 'RESTful APIs'].map((skill) => (
-                          <span key={skill} className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-full text-blue-600 dark:text-blue-400 hover:from-blue-500/30 hover:to-purple-500/30 transition-colors">
-                            {skill}
-                          </span>
-                        ))}
+                        {index === 0
+                          ? ['React.js', 'Node.js', 'MongoDB', 'Express.js', 'JavaScript', 'Git', 'RESTful APIs'].map((skill) => (
+                            <span key={skill} className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-full text-blue-600 dark:text-blue-400 hover:from-blue-500/30 hover:to-purple-500/30 transition-colors">
+                              {skill}
+                            </span>
+                          ))
+                          : ['TypeScript', 'Node.js', 'JavaScript', 'Elasticsearch', 'Web Scraping', 'Cheerio', 'HTML/AJAX Parsing', 'Session Management', 'Data Pipeline', 'UK Gov APIs'].map((skill) => (
+                            <span key={skill} className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-green-500/20 to-teal-500/20 border border-green-500/30 rounded-full text-green-600 dark:text-green-400 hover:from-green-500/30 hover:to-teal-500/30 transition-colors">
+                              {skill}
+                            </span>
+                          ))
+                        }
                       </div>
                     </div>
                   </GlassCard>

@@ -33,12 +33,12 @@ const featuredProjects: Project[] = [
   },
   {
     id: 2,
-    title: 'DeepSeek ChartBot Chat Assistant',
-    description: 'An intelligent chatbot that generates dynamic charts and data visualizations using AI. Built with modern React patterns and integrated with DeepSeek API for real-time data processing.',
-    image: '/chatbot.jpeg',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Chart.js', 'AI Integration'],
-    github: 'https://github.com/1711naveen/chatbot',
-    live: 'https://your-chatbot-demo.vercel.app/',
+    title: 'Dealer Management API',
+    description: 'A comprehensive REST API for managing dealers, vehicles, and payment processing with JWT authentication. Features complete CRUD operations, Spring Security, and PostgreSQL integration.',
+    image: '/dealers-backend-image.png',
+    technologies: ['Spring Boot', 'Java 17', 'PostgreSQL', 'JWT', 'Swagger', 'Docker'],
+    github: 'https://github.com/1711naveen/dealer-management-api',
+    live: 'https://dealer-management-api.onrender.com/swagger-ui.html',
     featured: true
   },
   {

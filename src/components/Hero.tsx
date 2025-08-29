@@ -50,7 +50,7 @@ const Hero = () => {
     },
     {
       name: 'Email',
-      url: 'mailto:naveenyadav1711@gmail.com',
+      url: 'mailto:yn.naveen00@gmail.com',
       icon: FaEnvelope,
       color: 'hover:text-red-400',
       stats: null
@@ -131,14 +131,14 @@ const Hero = () => {
             >
               <Link href="/resume" target="_blank">
                 <AnimatedButton size="lg" className="w-full sm:w-auto">
-                  <FaDownload className="mr-2 h-4 w-4" />
+                  <FaDownload className="h-4 w-4" />
                   Download Resume
                 </AnimatedButton>
               </Link>
 
               <Link href="#projects">
                 <AnimatedButton variant="outline" size="lg" className="w-full sm:w-auto">
-                  <FaExternalLinkAlt className="mr-2 h-4 w-4" />
+                  <FaExternalLinkAlt className="h-4 w-4" />
                   View Projects
                 </AnimatedButton>
               </Link>

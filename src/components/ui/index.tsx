@@ -89,9 +89,9 @@ export const AnimatedButton = ({
       className={cn(baseClasses, variants[variant], sizes[size], className)}
     >
       {variant === 'primary' || variant === 'secondary' ? (
-        <span className="relative z-10">{children}</span>
+        <span className="relative z-10 inline-flex items-center justify-center gap-2">{children}</span>
       ) : (
-        children
+        <span className="inline-flex items-center justify-center gap-2">{children}</span>
       )}
     </motion.button>
   );
