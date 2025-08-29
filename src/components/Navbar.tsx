@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { 
@@ -63,6 +63,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
   // Handle hydration
   useEffect(() => {
@@ -71,35 +72,50 @@ const Navbar = () => {
 
   // Handle scroll effect
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-      
-      // Update active section based on scroll position
-      const sections = [
-        { id: 'hero', navSection: 'hero' },
-        { id: 'about', navSection: 'about' },
-        { id: 'experience', navSection: 'about' }, // Map experience to about nav
-        { id: 'projects', navSection: 'projects' },
-        { id: 'skills', navSection: 'skills' },
-        { id: 'contact', navSection: 'skills' } // Map contact to skills nav
-      ];
-      
-      const scrollPosition = window.scrollY + 150; // Adjusted offset
-      let currentNavSection = 'hero'; // Default to hero
-      
-      // Find the section currently in view
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i].id);
-        if (section && scrollPosition >= section.offsetTop) {
-          currentNavSection = sections[i].navSection;
-          break;
-        }
+      if (!ticking && !scrollTimeout.current) { // Don't update during click navigation
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          setScrolled(scrollY > 20);
+          
+          // Update active section based on scroll position with stability
+          const sections = [
+            { id: 'hero', navSection: 'hero', offset: 0 },
+            { id: 'about', navSection: 'about', offset: 50 },
+            { id: 'experience', navSection: 'about', offset: 50 },
+            { id: 'projects', navSection: 'projects', offset: 50 },
+            { id: 'skills', navSection: 'skills', offset: 50 },
+            { id: 'contact', navSection: 'skills', offset: 50 }
+          ];
+          
+          let currentNavSection = 'hero';
+          const viewportHeight = window.innerHeight;
+          const scrollPosition = scrollY + viewportHeight * 0.25; // Use 25% of viewport height as trigger
+          
+          // Find the section currently in view
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const section = document.getElementById(sections[i].id);
+            if (section) {
+              const sectionTop = section.offsetTop - sections[i].offset;
+              if (scrollPosition >= sectionTop) {
+                currentNavSection = sections[i].navSection;
+                break;
+              }
+            }
+          }
+          
+          // Only update if section actually changed to prevent flickering
+          setActiveSection(prev => prev !== currentNavSection ? currentNavSection : prev);
+          
+          ticking = false;
+        });
+        ticking = true;
       }
-      
-      setActiveSection(currentNavSection);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Call once to set initial state
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -110,12 +126,18 @@ const Navbar = () => {
 
   const handleNavClick = (item: typeof navItems[0]) => {
     if (item.section) {
-      scrollToSection(item.section);
+      // Clear any pending scroll timeout
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
+      
       setActiveSection(item.section); // Immediately update active section
-      // Also update after scroll animation completes
-      setTimeout(() => {
-        setActiveSection(item.section!);
-      }, 100);
+      scrollToSection(item.section);
+      
+      // Prevent scroll detection from overriding for a brief moment
+      scrollTimeout.current = setTimeout(() => {
+        scrollTimeout.current = null;
+      }, 1000); // 1 second delay before scroll detection resumes normal operation
     }
     setIsOpen(false);
   };
