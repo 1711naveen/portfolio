@@ -83,23 +83,23 @@ const TechStack = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ scale: 1.05, rotateY: 5 }}
-      className="group relative bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 hover:border-blue-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/10"
+      className="group relative bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300/50 dark:border-gray-700/50 rounded-xl p-6 hover:border-blue-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/10"
     >
       <div className="flex flex-col items-center text-center space-y-4">
         <div className="relative">
-          <div className="w-16 h-16 bg-gradient-to-r from-gray-700 to-gray-600 rounded-xl flex items-center justify-center group-hover:from-gray-600 group-hover:to-gray-500 transition-all duration-300">
+          <div className="w-16 h-16 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-xl flex items-center justify-center group-hover:from-gray-300 group-hover:to-gray-400 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-all duration-300">
             <skill.Icon className={`text-3xl ${skill.color} group-hover:scale-110 transition-transform duration-300`} />
           </div>
           <div className="absolute -inset-2 bg-gradient-to-r from-blue-400/20 to-purple-500/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
         
         <div className="w-full">
-          <h3 className="text-white font-semibold mb-2 group-hover:text-blue-400 transition-colors">
+          <h3 className="text-gray-900 dark:text-white font-semibold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
             {skill.name}
           </h3>
           
           {/* Skill Level Bar */}
-          <div className="w-full bg-gray-700 rounded-full h-2 mb-1">
+          <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2 mb-1">
             <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: `${skill.level}%` }}
@@ -108,7 +108,7 @@ const TechStack = () => {
               className="h-full bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"
             />
           </div>
-          <span className="text-xs text-gray-400">{skill.level}%</span>
+          <span className="text-xs text-gray-600 dark:text-gray-400">{skill.level}%</span>
         </div>
       </div>
 
@@ -118,9 +118,9 @@ const TechStack = () => {
   )
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-black via-gray-950 to-black relative overflow-hidden">
+    <section id="skills" className="py-20 bg-white dark:bg-gradient-to-b dark:from-black dark:via-gray-950 dark:to-black bg-gradient-to-b from-white via-gray-50 to-gray-100 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f0f23_1px,transparent_1px),linear-gradient(to_bottom,#0f0f23_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#0f0f23_1px,transparent_1px),linear-gradient(to_bottom,#0f0f23_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
       <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
 
@@ -137,7 +137,7 @@ const TechStack = () => {
               Technical Skills
             </span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             Here are the technologies and tools I work with to bring ideas to life
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto mt-4"></div>
@@ -190,12 +190,12 @@ const TechStack = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-800/30 border border-gray-700/50 rounded-xl p-6 hover:border-blue-500/50 transition-all duration-300"
+                className="bg-white/30 dark:bg-gray-800/30 border border-gray-300/50 dark:border-gray-700/50 rounded-xl p-6 hover:border-blue-500/50 transition-all duration-300"
               >
-                <h4 className="text-2xl md:text-3xl font-bold text-white mb-2 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                <h4 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                   {stat.value}
                 </h4>
-                <p className="text-gray-400 text-sm md:text-base">{stat.label}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base">{stat.label}</p>
               </motion.div>
             ))}
           </div>
