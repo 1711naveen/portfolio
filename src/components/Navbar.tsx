@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from 'next-themes';
@@ -64,6 +65,7 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
+  const pathname = usePathname();
 
   // Handle hydration
   useEffect(() => {
@@ -131,6 +133,12 @@ const Navbar = () => {
         clearTimeout(scrollTimeout.current);
       }
       
+      // If we're not on the home page, navigate to home first
+      if (pathname !== '/') {
+        window.location.href = item.href; // This will navigate to home and scroll to section
+        return;
+      }
+      
       setActiveSection(item.section); // Immediately update active section
       scrollToSection(item.section);
       
@@ -174,7 +182,7 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1">
               {navItems.map((item, index) => {
-                const isActive = item.section === activeSection;
+                const isActive = item.section === activeSection && pathname === '/';
                 return (
                   <motion.div
                     key={item.name}
@@ -183,10 +191,46 @@ const Navbar = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     {item.section ? (
-                      <button
-                        onClick={() => handleNavClick(item)}
-                        className={`relative flex items-center px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 group ${
-                          isActive 
+                      pathname === '/' ? (
+                        <button
+                          onClick={() => handleNavClick(item)}
+                          className={`relative flex items-center px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 group ${
+                            isActive 
+                              ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-600 dark:text-purple-400' 
+                              : 'hover:bg-white/20 dark:hover:bg-white/10'
+                          }`}
+                          aria-label={item.description}
+                          title={item.description}
+                        >
+                          <item.icon className={`mr-2 h-4 w-4 transition-transform ${
+                            isActive ? 'scale-110' : 'group-hover:scale-110'
+                          }`} />
+                          {item.name}
+                          {isActive && (
+                            <motion.div
+                              layoutId="activeIndicator"
+                              className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                              initial={false}
+                              transition={{ duration: 0.3 }}
+                            />
+                          )}
+                        </button>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className="flex items-center px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10 group"
+                          aria-label={item.description}
+                          title={item.description}
+                        >
+                          <item.icon className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+                          {item.name}
+                        </Link>
+                      )
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className={`flex items-center px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 group ${
+                          pathname === item.href 
                             ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-600 dark:text-purple-400' 
                             : 'hover:bg-white/20 dark:hover:bg-white/10'
                         }`}
@@ -194,10 +238,10 @@ const Navbar = () => {
                         title={item.description}
                       >
                         <item.icon className={`mr-2 h-4 w-4 transition-transform ${
-                          isActive ? 'scale-110' : 'group-hover:scale-110'
+                          pathname === item.href ? 'scale-110' : 'group-hover:scale-110'
                         }`} />
                         {item.name}
-                        {isActive && (
+                        {pathname === item.href && (
                           <motion.div
                             layoutId="activeIndicator"
                             className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
@@ -205,16 +249,6 @@ const Navbar = () => {
                             transition={{ duration: 0.3 }}
                           />
                         )}
-                      </button>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className="flex items-center px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10 group"
-                        aria-label={item.description}
-                        title={item.description}
-                      >
-                        <item.icon className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
-                        {item.name}
                       </Link>
                     )}
                   </motion.div>
@@ -300,7 +334,7 @@ const Navbar = () => {
             >
               <div className="container mx-auto px-4 py-4 space-y-2">
                 {navItems.map((item, index) => {
-                  const isActive = item.section === activeSection;
+                  const isActive = item.section === activeSection && pathname === '/';
                   return (
                     <motion.div
                       key={item.name}
@@ -309,10 +343,43 @@ const Navbar = () => {
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                     >
                       {item.section ? (
-                        <button
-                          onClick={() => handleNavClick(item)}
-                          className={`relative flex items-center w-full px-4 py-3 rounded-lg text-left text-base font-medium transition-all duration-200 ${
-                            isActive 
+                        pathname === '/' ? (
+                          <button
+                            onClick={() => handleNavClick(item)}
+                            className={`relative flex items-center w-full px-4 py-3 rounded-lg text-left text-base font-medium transition-all duration-200 ${
+                              isActive 
+                                ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-600 dark:text-purple-400' 
+                                : 'hover:bg-white/20 dark:hover:bg-white/10'
+                            }`}
+                            aria-label={item.description}
+                            title={item.description}
+                          >
+                            <item.icon className={`mr-3 h-5 w-5 transition-transform ${
+                              isActive ? 'scale-110' : ''
+                            }`} />
+                            {item.name}
+                            {isActive && (
+                              <div className="absolute right-4 w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
+                            )}
+                          </button>
+                        ) : (
+                          <Link
+                            href={item.href}
+                            onClick={() => setIsOpen(false)}
+                            className="flex items-center w-full px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10"
+                            aria-label={item.description}
+                            title={item.description}
+                          >
+                            <item.icon className="mr-3 h-5 w-5" />
+                            {item.name}
+                          </Link>
+                        )
+                      ) : (
+                        <Link
+                          href={item.href}
+                          onClick={() => setIsOpen(false)}
+                          className={`relative flex items-center w-full px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                            pathname === item.href 
                               ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-600 dark:text-purple-400' 
                               : 'hover:bg-white/20 dark:hover:bg-white/10'
                           }`}
@@ -320,23 +387,12 @@ const Navbar = () => {
                           title={item.description}
                         >
                           <item.icon className={`mr-3 h-5 w-5 transition-transform ${
-                            isActive ? 'scale-110' : ''
+                            pathname === item.href ? 'scale-110' : ''
                           }`} />
                           {item.name}
-                          {isActive && (
+                          {pathname === item.href && (
                             <div className="absolute right-4 w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
                           )}
-                        </button>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          onClick={() => setIsOpen(false)}
-                          className="flex items-center w-full px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/10"
-                          aria-label={item.description}
-                          title={item.description}
-                        >
-                          <item.icon className="mr-3 h-5 w-5" />
-                          {item.name}
                         </Link>
                       )}
                     </motion.div>
